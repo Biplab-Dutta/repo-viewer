@@ -5,12 +5,12 @@ import 'package:dio/dio.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:oauth2/oauth2.dart';
-import 'package:repo_viewer/core/data/dio_extensions.dart';
-import 'package:repo_viewer/core/data/to_uri_extension.dart';
-import 'package:repo_viewer/core/shared/encoder.dart';
 import 'package:repo_viewer/features/auth/data/credentials_storage/i_credentials_storage.dart';
 import 'package:repo_viewer/features/auth/data/secret_constants.dart';
 import 'package:repo_viewer/features/auth/domain/failure/auth_failure.dart';
+import 'package:repo_viewer/features/core/data/dio_extensions.dart';
+import 'package:repo_viewer/features/core/data/to_uri_extension.dart';
+import 'package:repo_viewer/features/core/shared/encoder.dart';
 
 class GithubOAuthHttpClient extends http.BaseClient {
   @override

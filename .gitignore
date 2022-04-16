@@ -62,11 +62,14 @@ unlinked_spec.ds
 **/android/captures/
 **/android/gradlew
 **/android/gradlew.bat
-**/android/local.properties
 **/android/**/GeneratedPluginRegistrant.java
 **/android/key.properties
 **/android/.idea/
 *.jks
+android/app/local.properties
+/android/app/debug
+/android/app/profile
+/android/app/release
 
 # iOS/XCode related
 **/ios/**/*.mode1v3
@@ -125,4 +128,5 @@ app.*.map.json
 !.idea/codeStyles/
 !.idea/dictionaries/
 !.idea/runConfigurations/
+
 lib/features/auth/data/secret_constants.dart

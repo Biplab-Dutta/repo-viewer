@@ -26,8 +26,8 @@ final githubAuthenticatorProvider = Provider(
 );
 
 final authNotifierProvider =
-    StateNotifierProvider.autoDispose<AuthNotifier, AuthState>(
-  (ref) => AuthNotifier(
+    StateNotifierProvider.autoDispose<AuthNotifier, AuthState>((ref) {
+  return AuthNotifier(
     ref.watch(githubAuthenticatorProvider),
-  ),
-);
+  )..checkAndUpdateAuthStatus();
+});

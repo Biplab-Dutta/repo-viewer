@@ -26,7 +26,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
       grant,
       redirectUrl.queryParameters,
     );
-    result.fold(
+    state = result.fold(
       AuthState.failure,
       (r) => const AuthState.authenticated(),
     );
@@ -35,7 +35,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
 
   Future<void> signOut() async {
     final result = await _githubAuthenticator.signOut();
-    result.fold(
+    state = result.fold(
       AuthState.failure,
       (_) => const AuthState.unauthenticated(),
     );

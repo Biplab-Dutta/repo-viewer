@@ -6,23 +6,17 @@ import 'package:repo_viewer/features/auth/shared/providers.dart';
 import 'package:repo_viewer/l10n/l10n.dart';
 import 'package:repo_viewer/routes/app_router.gr.dart';
 
-final initializationProvider = FutureProvider<void>((ref) async {
-  final authNotifier = ref.read(authNotifierProvider.notifier);
-  await authNotifier.checkAndUpdateAuthStatus();
-});
-
 class App extends ConsumerWidget {
   App({Key? key}) : super(key: key);
 
   final appRouter = AppRouter();
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ref
-      ..watch(initializationProvider)
-      ..listen<AuthState>(
-        authNotifierProvider,
-        (_, state) {
-          state.maybeWhen(
+    ref.listen<AuthState>(
+      authNotifierProvider,
+      (previousState, currentState) {
+        if (previousState != currentState) {
+          currentState.maybeWhen(
             authenticated: () {
               appRouter.pushAndPopUntil<bool>(
                 const StarredReposRoute(),
@@ -37,8 +31,9 @@ class App extends ConsumerWidget {
             },
             orElse: () {},
           );
-        },
-      );
+        }
+      },
+    );
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: 'Repo Viewer',

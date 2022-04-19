@@ -12,12 +12,13 @@
 
 import 'package:auto_route/auto_route.dart' as _i5;
 import 'package:flutter/material.dart' as _i6;
+import 'package:webview_flutter/webview_flutter.dart' as _i7;
 
 import '../features/auth/presentation/pages/authorization_page.dart' as _i3;
 import '../features/auth/presentation/pages/sign_in_page.dart' as _i2;
-import '../features/splash/presentation/splash_page.dart' as _i1;
-import '../features/starred_repos/presentation/pages/starred_repos_page.dart'
+import '../features/github/repos/starred_repos/presentation/pages/starred_repos_page.dart'
     as _i4;
+import '../features/splash/presentation/splash_page.dart' as _i1;
 
 class AppRouter extends _i5.RootStackRouter {
   AppRouter([_i6.GlobalKey<_i6.NavigatorState>? navigatorKey])
@@ -41,7 +42,8 @@ class AppRouter extends _i5.RootStackRouter {
               key: args.key,
               authorizationUrl: args.authorizationUrl,
               onAuthorizationCodeRedirectAttempt:
-                  args.onAuthorizationCodeRedirectAttempt));
+                  args.onAuthorizationCodeRedirectAttempt,
+              cookieManager: args.cookieManager));
     },
     StarredReposRoute.name: (routeData) {
       return _i5.MaterialPageX<bool>(
@@ -80,14 +82,16 @@ class AuthorizationRoute extends _i5.PageRouteInfo<AuthorizationRouteArgs> {
   AuthorizationRoute(
       {_i6.Key? key,
       required Uri authorizationUrl,
-      required void Function(Uri) onAuthorizationCodeRedirectAttempt})
+      required void Function(Uri) onAuthorizationCodeRedirectAttempt,
+      _i7.CookieManager? cookieManager})
       : super(AuthorizationRoute.name,
             path: '/auth',
             args: AuthorizationRouteArgs(
                 key: key,
                 authorizationUrl: authorizationUrl,
                 onAuthorizationCodeRedirectAttempt:
-                    onAuthorizationCodeRedirectAttempt));
+                    onAuthorizationCodeRedirectAttempt,
+                cookieManager: cookieManager));
 
   static const String name = 'AuthorizationRoute';
 }
@@ -96,7 +100,8 @@ class AuthorizationRouteArgs {
   const AuthorizationRouteArgs(
       {this.key,
       required this.authorizationUrl,
-      required this.onAuthorizationCodeRedirectAttempt});
+      required this.onAuthorizationCodeRedirectAttempt,
+      this.cookieManager});
 
   final _i6.Key? key;
 
@@ -104,9 +109,11 @@ class AuthorizationRouteArgs {
 
   final void Function(Uri) onAuthorizationCodeRedirectAttempt;
 
+  final _i7.CookieManager? cookieManager;
+
   @override
   String toString() {
-    return 'AuthorizationRouteArgs{key: $key, authorizationUrl: $authorizationUrl, onAuthorizationCodeRedirectAttempt: $onAuthorizationCodeRedirectAttempt}';
+    return 'AuthorizationRouteArgs{key: $key, authorizationUrl: $authorizationUrl, onAuthorizationCodeRedirectAttempt: $onAuthorizationCodeRedirectAttempt, cookieManager: $cookieManager}';
   }
 }
 

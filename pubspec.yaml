@@ -17,12 +17,14 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   flutter_secure_storage: ^5.0.2
-  freezed_annotation: ^1.1.0
+  freezed_annotation: ^2.0.0
   hooks_riverpod: ^1.0.3
   intl: ^0.17.0
   json_annotation: ^4.4.0
   material_design_icons_flutter: ^5.0.6595
   oauth2: ^2.0.0
+  path: ^1.8.0
+  path_provider: ^2.0.9
   sembast: ^3.2.0
   webview_flutter: ^3.0.2
 
@@ -31,7 +33,7 @@ dev_dependencies:
   build_runner: ^2.1.8
   flutter_test:
     sdk: flutter
-  freezed: ^1.1.1
+  freezed: ^2.0.0
   json_serializable: ^6.1.5
   very_good_analysis: ^2.4.0
 

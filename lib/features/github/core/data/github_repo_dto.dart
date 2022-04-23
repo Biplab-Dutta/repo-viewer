@@ -1,4 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:repo_viewer/features/core/data/decoders.dart';
+import 'package:repo_viewer/features/core/data/json_parsers.dart';
 import 'package:repo_viewer/features/github/core/data/user_dto.dart';
 import 'package:repo_viewer/features/github/core/domain/github_repo.dart';
 
@@ -32,4 +34,15 @@ class GithubRepoDTO with _$GithubRepoDTO {
         description: description,
         stargazersCount: stargazersCount,
       );
+}
+
+class GithubRepoDTOParser extends JsonParser<List<GithubRepoDTO>>
+    with ListDecoder<List<GithubRepoDTO>> {
+  const GithubRepoDTOParser();
+  @override
+  Future<List<GithubRepoDTO>> parseFromJson(String json) async {
+    return decodeJsonList(json)
+        .map((dynamic e) => GithubRepoDTO.fromJson(e as Map<String, dynamic>))
+        .toList();
+  }
 }

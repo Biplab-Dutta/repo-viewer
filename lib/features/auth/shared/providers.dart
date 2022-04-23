@@ -5,12 +5,21 @@ import 'package:repo_viewer/features/auth/application/auth_state.dart';
 import 'package:repo_viewer/features/auth/data/credentials_storage/i_credentials_storage.dart';
 import 'package:repo_viewer/features/auth/data/credentials_storage/secure_credentials_storage.dart';
 import 'package:repo_viewer/features/auth/data/github_authenticator.dart';
+import 'package:repo_viewer/features/auth/data/oauth2_interceptor.dart';
 import 'package:riverpod/riverpod.dart';
 
 final flutterSecureStorageProvider =
     Provider((ref) => const FlutterSecureStorage());
 
-final dioProvider = Provider((ref) => Dio());
+final dioForAuthProvider = Provider((ref) => Dio());
+
+final oAuth2InterceptorProvider = Provider(
+  (ref) => OAuth2Interceptor(
+    ref.watch(githubAuthenticatorProvider),
+    ref.watch(authNotifierProvider.notifier),
+    ref.watch(dioForAuthProvider),
+  ),
+);
 
 final credentialsStorageProvider = Provider<ICredentialsStorage>(
   (ref) => SecureCredentialsStorage(
@@ -21,12 +30,11 @@ final credentialsStorageProvider = Provider<ICredentialsStorage>(
 final githubAuthenticatorProvider = Provider(
   (ref) => GithubAuthenticator(
     ref.watch(credentialsStorageProvider),
-    ref.watch(dioProvider),
+    ref.watch(dioForAuthProvider),
   ),
 );
 
-final authNotifierProvider =
-    StateNotifierProvider.autoDispose<AuthNotifier, AuthState>(
+final authNotifierProvider = StateNotifierProvider<AuthNotifier, AuthState>(
   (ref) {
     return AuthNotifier(
       ref.watch(githubAuthenticatorProvider),

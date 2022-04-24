@@ -4,41 +4,29 @@ part 'fresh.freezed.dart';
 
 @freezed
 class Fresh<T> with _$Fresh<T> {
-  const factory Fresh.yes(
+  const factory Fresh({
+    required T entity,
+    required bool isFresh,
+    bool? isNextPageAvailable,
+  }) = _Fresh<T>;
+
+  factory Fresh.yes(
     T entity, {
     bool? isNextPageAvailable,
-  }) = _Yes;
-  const factory Fresh.no(
+  }) =>
+      Fresh(
+        entity: entity,
+        isFresh: true,
+        isNextPageAvailable: isNextPageAvailable,
+      );
+
+  factory Fresh.no(
     T entity, {
     bool? isNextPageAvailable,
-  }) = _No;
+  }) =>
+      Fresh(
+        entity: entity,
+        isFresh: false,
+        isNextPageAvailable: isNextPageAvailable,
+      );
 }
-
-// @freezed
-// class Fresh<T> with _$Fresh<T> {
-//   const factory Fresh({
-//     required T entity,
-//     required bool isFresh,
-//     bool? isNextPageAvailable,
-//   }) = _Fresh<T>;
-
-//   factory Fresh.yes(
-//     T entity, {
-//     bool? isNextPageAvailable,
-//   }) =>
-//       Fresh(
-//         entity: entity,
-//         isFresh: true,
-//         isNextPageAvailable: isNextPageAvailable,
-//       );
-
-//   factory Fresh.no(
-//     T entity, {
-//     bool? isNextPageAvailable,
-//   }) =>
-//       Fresh(
-//         entity: entity,
-//         isFresh: false,
-//         isNextPageAvailable: isNextPageAvailable,
-//       );
-// }

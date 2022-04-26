@@ -1,4 +1,5 @@
-import 'package:dio/dio.dart';
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -12,13 +13,6 @@ final initializationProvider = FutureProvider<void>(
   (ref) async {
     await ref.read(authNotifierProvider.notifier).checkAndUpdateAuthStatus();
     await ref.read(sembastProvider).init();
-    ref.read(dioProvider)
-      ..options = BaseOptions(
-        headers: <String, String>{
-          'Accept': 'application/vnd.github.v3.html+json'
-        },
-      )
-      ..interceptors.add(ref.read(oAuth2InterceptorProvider));
   },
 );
 
@@ -42,8 +36,9 @@ class App extends ConsumerWidget {
         (previousState, currentState) {
           if (previousState != currentState) {
             currentState.maybeWhen<void>(
-              authenticated: () {
-                appRouter.pushAndPopUntil<bool>(
+              authenticated: () async {
+                await Future<void>.delayed(const Duration(seconds: 1));
+                await appRouter.pushAndPopUntil<bool>(
                   const StarredReposRoute(),
                   predicate: (_) => false,
                 );

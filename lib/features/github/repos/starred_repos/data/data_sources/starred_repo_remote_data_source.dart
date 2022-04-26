@@ -27,8 +27,8 @@ class StarredRepoRemoteDataSource {
     final requestUri = Uri.https(
       'api.github.com',
       '/user/starred',
-      <String, dynamic>{
-        'page': page,
+      <String, String>{
+        'page': page.toString(),
         'per_page': PaginationConfig.itemsPerPage.toString(),
       },
     );
@@ -39,7 +39,7 @@ class StarredRepoRemoteDataSource {
       final response = await _dio.getUri<String>(
         requestUri,
         options: Options(
-          headers: <String, dynamic>{
+          headers: <String, String>{
             'If-None-Match': previousHeaders?.etag ?? ''
           },
         ),

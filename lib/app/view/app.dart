@@ -37,7 +37,9 @@ class App extends ConsumerWidget {
           if (previousState != currentState) {
             currentState.maybeWhen<void>(
               authenticated: () async {
-                await Future<void>.delayed(const Duration(seconds: 1));
+                /* The delay is necessary for the sembast 
+                    database to initialize */
+                await Future<void>.delayed(const Duration(milliseconds: 500));
                 await appRouter.pushAndPopUntil<bool>(
                   const StarredReposRoute(),
                   predicate: (_) => false,

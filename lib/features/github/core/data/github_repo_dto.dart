@@ -39,6 +39,7 @@ class GithubRepoDTO with _$GithubRepoDTO {
 class GithubRepoDTOParser extends JsonParser<List<GithubRepoDTO>>
     with ListDecoder<List<GithubRepoDTO>> {
   const GithubRepoDTOParser();
+
   @override
   Future<List<GithubRepoDTO>> parseFromJson(String json) async {
     return decodeJsonList(json)

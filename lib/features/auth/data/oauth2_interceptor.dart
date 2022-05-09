@@ -47,7 +47,7 @@ class OAuth2Interceptor extends Interceptor {
           await _authenticator.getSignedInCredentials();
       if (refreshedCredentials != null) {
         handler.resolve(
-          await _dio.fetch<String>(
+          await _dio.fetch<Object>(
             errorResponse.requestOptions
               ..headers['Authorization'] =
                   'bearer ${refreshedCredentials.accessToken}',

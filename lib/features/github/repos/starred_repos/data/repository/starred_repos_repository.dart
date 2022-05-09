@@ -24,15 +24,16 @@ class StarredReposRepository {
     try {
       final remotePageItems = await _remoteDataSource.getStarredReposPage(
         page,
-        parser: const GithubRepoDTOParser(),
+        // parser: const GithubRepoDTOParser(),
       );
       return right(
         await remotePageItems.when(
-          noConnection: (maxPage) async => Fresh.no(
+          noConnection: () async => Fresh.no(
             await _localDataSource.getPage(page).then(
                   (dtoList) => dtoList.toDomainList,
                 ),
-            isNextPageAvailable: page < maxPage,
+            isNextPageAvailable:
+                page < await _localDataSource.getLocalPageCount(),
           ),
           notModified: (maxPage) async => Fresh.yes(
             await _localDataSource.getPage(page).then(

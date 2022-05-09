@@ -100,7 +100,7 @@ class GithubAuthenticator {
       final base64EncodedString = fusedCodec.encode('$clientId:$clientSecret');
 
       try {
-        await _dio.deleteUri<String>(
+        await _dio.deleteUri<Object>(
           revocationEndpoint,
           data: {'access_token': accessToken},
           options: Options(

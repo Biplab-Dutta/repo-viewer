@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:repo_viewer/features/core/presentation/toasts.dart';
+import 'package:repo_viewer/features/github/core/presentation/no_results_display.dart';
 import 'package:repo_viewer/features/github/core/shared/providers.dart';
 import 'package:repo_viewer/features/github/repos/starred_repos/application/starred_repos_state.dart';
 import 'package:repo_viewer/features/github/repos/starred_repos/presentation/widgets/failure_repo_tile.dart';
@@ -16,7 +18,10 @@ class PaginatedReposListView extends StatefulWidget {
 }
 
 class _PaginatedReposListViewState extends State<PaginatedReposListView> {
-  bool canLoadNextPage = false;
+  bool _canLoadNextPage = false;
+  bool _hasAlreadyShownNoConnectionToast = false;
+  final _noResultsMessage =
+      "That's about everything we could find in your starred repos right now.";
 
   @override
   Widget build(BuildContext context) {
@@ -25,11 +30,20 @@ class _PaginatedReposListViewState extends State<PaginatedReposListView> {
         ref.listen<StarredReposState>(
           starredReposNotifierProvider,
           (_, state) {
-            state.map<bool>(
-              initial: (_) => canLoadNextPage = true,
-              loading: (_) => canLoadNextPage = false,
-              loaded: (_) => canLoadNextPage = _.isNextPageAvailable,
-              failed: (_) => canLoadNextPage = false,
+            state.map(
+              initial: (_) => _canLoadNextPage = true,
+              loading: (_) => _canLoadNextPage = false,
+              loaded: (_) {
+                if (!_.repos.isFresh && !_hasAlreadyShownNoConnectionToast) {
+                  _hasAlreadyShownNoConnectionToast = true;
+                  showNoConnectionToast(
+                    'You are not online 📵. Some information may be outdated.',
+                    context: context,
+                  );
+                }
+                _canLoadNextPage = _.isNextPageAvailable;
+              },
+              failed: (_) => _canLoadNextPage = false,
             );
           },
         );
@@ -40,15 +54,22 @@ class _PaginatedReposListViewState extends State<PaginatedReposListView> {
             final limit =
                 metrics.maxScrollExtent - metrics.viewportDimension / 3;
             // final limit = 0.75 * metrics.maxScrollExtent;
-            if (canLoadNextPage && metrics.pixels >= limit) {
-              canLoadNextPage = false;
+            if (_canLoadNextPage && metrics.pixels >= limit) {
+              _canLoadNextPage = false;
               ref
                   .read(starredReposNotifierProvider.notifier)
                   .getNextStarredReposPage();
             }
             return false;
           },
-          child: _PaginatedListView(state: state),
+          child: state.maybeWhen<bool>(
+            loaded: (repos, _) => state.repos.entity.isEmpty,
+            orElse: () => false,
+          )
+              ? NoResultsDisplay(
+                  message: _noResultsMessage,
+                )
+              : _PaginatedListView(state: state),
         );
       },
     );

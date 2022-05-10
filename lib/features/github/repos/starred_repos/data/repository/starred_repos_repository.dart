@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
 import 'package:repo_viewer/features/core/data/network_exceptions.dart';
 import 'package:repo_viewer/features/core/domain/fresh.dart';
-import 'package:repo_viewer/features/github/core/data/github_repo_dto.dart';
 import 'package:repo_viewer/features/github/core/domain/github_failure.dart';
 import 'package:repo_viewer/features/github/core/domain/github_repo.dart';
+import 'package:repo_viewer/features/github/repos/core/data/extensions.dart';
 import 'package:repo_viewer/features/github/repos/starred_repos/data/data_sources/starred_repo_local_data_source.dart';
 import 'package:repo_viewer/features/github/repos/starred_repos/data/data_sources/starred_repo_remote_data_source.dart';
 
@@ -54,8 +54,4 @@ class StarredReposRepository {
       return left(GithubFailure.api(e.errorCode));
     }
   }
-}
-
-extension DTOListToDomainList on List<GithubRepoDTO> {
-  List<GithubRepo> get toDomainList => map((e) => e.toDomain()).toList();
 }

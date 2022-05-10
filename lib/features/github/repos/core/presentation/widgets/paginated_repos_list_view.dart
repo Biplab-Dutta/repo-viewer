@@ -14,7 +14,7 @@ class PaginatedReposListView extends StatefulWidget {
   const PaginatedReposListView({
     Key? key,
     required PaginatedReposNotifierProvider paginatedReposNotifierProvider,
-    required void Function(WidgetRef) getNextPage,
+    required void Function() getNextPage,
     required String noResultMessage,
   })  : _paginatedReposNotifierProvider = paginatedReposNotifierProvider,
         _getNextPage = getNextPage,
@@ -22,7 +22,7 @@ class PaginatedReposListView extends StatefulWidget {
         super(key: key);
 
   final PaginatedReposNotifierProvider _paginatedReposNotifierProvider;
-  final void Function(WidgetRef ref) _getNextPage;
+  final void Function() _getNextPage;
   final String _noResultMessage;
 
   @override
@@ -66,7 +66,7 @@ class _PaginatedReposListViewState extends State<PaginatedReposListView> {
             // final limit = 0.75 * metrics.maxScrollExtent;
             if (_canLoadNextPage && metrics.pixels >= limit) {
               _canLoadNextPage = false;
-              widget._getNextPage(ref);
+              widget._getNextPage();
             }
             return false;
           },

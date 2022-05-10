@@ -25,7 +25,7 @@ class _StarredReposPageState extends ConsumerState<StarredReposPage> {
 
     // We can also use this:
     // WidgetsBinding.db?.addPostFrameCallback(
-    //   (timeStamp) {
+    //   (_) {
     //     ref
     //         .read(starredReposNotifierProvider.notifier)
     //         .getNextStarredReposPage();
@@ -47,7 +47,7 @@ class _StarredReposPageState extends ConsumerState<StarredReposPage> {
       ),
       body: PaginatedReposListView(
         paginatedReposNotifierProvider: starredReposNotifierProvider,
-        getNextPage: (ref) => ref
+        getNextPage: () => ref
             .read(starredReposNotifierProvider.notifier)
             .getNextStarredReposPage(),
         noResultMessage: '''

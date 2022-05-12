@@ -5,7 +5,7 @@ import 'package:sembast/sembast_io.dart';
 
 class SembastDatabase {
   late Database _db;
-  Database get db => _db;
+  Database get instance => _db;
 
   bool _hasBeenInitialized = false;
 

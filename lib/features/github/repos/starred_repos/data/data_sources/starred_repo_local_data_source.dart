@@ -22,7 +22,7 @@ class StarredRepoLocalDataSource {
           ),
         )
         .put(
-          _sembastDatabase.db,
+          _sembastDatabase.instance,
           dtos.map((e) => e.toJson()).toList(),
         );
   }
@@ -30,7 +30,7 @@ class StarredRepoLocalDataSource {
   Future<List<GithubRepoDTO>> getPage(int page) async {
     final sembastPage = page - 1;
     final records = await _store.find(
-      _sembastDatabase.db,
+      _sembastDatabase.instance,
       finder: Finder(
         limit: _itemsPerPage,
         offset: sembastPage * _itemsPerPage,
@@ -40,7 +40,7 @@ class StarredRepoLocalDataSource {
   }
 
   Future<int> getLocalPageCount() async {
-    final repoCount = await _store.count(_sembastDatabase.db);
+    final repoCount = await _store.count(_sembastDatabase.instance);
     return (repoCount / PaginationConfig.itemsPerPage).ceil();
   }
 }

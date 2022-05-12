@@ -86,27 +86,27 @@ class _$GithubFailureCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$ApiCopyWith<$Res> implements $GithubFailureCopyWith<$Res> {
-  factory _$ApiCopyWith(_Api value, $Res Function(_Api) then) =
-      __$ApiCopyWithImpl<$Res>;
+abstract class _$$_ApiCopyWith<$Res> implements $GithubFailureCopyWith<$Res> {
+  factory _$$_ApiCopyWith(_$_Api value, $Res Function(_$_Api) then) =
+      __$$_ApiCopyWithImpl<$Res>;
   @override
   $Res call({int? errorCode});
 }
 
 /// @nodoc
-class __$ApiCopyWithImpl<$Res> extends _$GithubFailureCopyWithImpl<$Res>
-    implements _$ApiCopyWith<$Res> {
-  __$ApiCopyWithImpl(_Api _value, $Res Function(_Api) _then)
-      : super(_value, (v) => _then(v as _Api));
+class __$$_ApiCopyWithImpl<$Res> extends _$GithubFailureCopyWithImpl<$Res>
+    implements _$$_ApiCopyWith<$Res> {
+  __$$_ApiCopyWithImpl(_$_Api _value, $Res Function(_$_Api) _then)
+      : super(_value, (v) => _then(v as _$_Api));
 
   @override
-  _Api get _value => super._value as _Api;
+  _$_Api get _value => super._value as _$_Api;
 
   @override
   $Res call({
     Object? errorCode = freezed,
   }) {
-    return _then(_Api(
+    return _then(_$_Api(
       errorCode == freezed
           ? _value.errorCode
           : errorCode // ignore: cast_nullable_to_non_nullable
@@ -132,7 +132,7 @@ class _$_Api extends _Api {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Api &&
+            other is _$_Api &&
             const DeepCollectionEquality().equals(other.errorCode, errorCode));
   }
 
@@ -142,8 +142,8 @@ class _$_Api extends _Api {
 
   @JsonKey(ignore: true)
   @override
-  _$ApiCopyWith<_Api> get copyWith =>
-      __$ApiCopyWithImpl<_Api>(this, _$identity);
+  _$$_ApiCopyWith<_$_Api> get copyWith =>
+      __$$_ApiCopyWithImpl<_$_Api>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -210,5 +210,5 @@ abstract class _Api extends GithubFailure {
   int? get errorCode => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ApiCopyWith<_Api> get copyWith => throw _privateConstructorUsedError;
+  _$$_ApiCopyWith<_$_Api> get copyWith => throw _privateConstructorUsedError;
 }

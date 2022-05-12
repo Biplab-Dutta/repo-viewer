@@ -80,22 +80,22 @@ class _$RemoteResponseCopyWithImpl<T, $Res>
 }
 
 /// @nodoc
-abstract class _$NoConnectionCopyWith<T, $Res> {
-  factory _$NoConnectionCopyWith(
-          _NoConnection<T> value, $Res Function(_NoConnection<T>) then) =
-      __$NoConnectionCopyWithImpl<T, $Res>;
+abstract class _$$_NoConnectionCopyWith<T, $Res> {
+  factory _$$_NoConnectionCopyWith(
+          _$_NoConnection<T> value, $Res Function(_$_NoConnection<T>) then) =
+      __$$_NoConnectionCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$NoConnectionCopyWithImpl<T, $Res>
+class __$$_NoConnectionCopyWithImpl<T, $Res>
     extends _$RemoteResponseCopyWithImpl<T, $Res>
-    implements _$NoConnectionCopyWith<T, $Res> {
-  __$NoConnectionCopyWithImpl(
-      _NoConnection<T> _value, $Res Function(_NoConnection<T>) _then)
-      : super(_value, (v) => _then(v as _NoConnection<T>));
+    implements _$$_NoConnectionCopyWith<T, $Res> {
+  __$$_NoConnectionCopyWithImpl(
+      _$_NoConnection<T> _value, $Res Function(_$_NoConnection<T>) _then)
+      : super(_value, (v) => _then(v as _$_NoConnection<T>));
 
   @override
-  _NoConnection<T> get _value => super._value as _NoConnection<T>;
+  _$_NoConnection<T> get _value => super._value as _$_NoConnection<T>;
 }
 
 /// @nodoc
@@ -111,7 +111,7 @@ class _$_NoConnection<T> extends _NoConnection<T> {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _NoConnection<T>);
+        (other.runtimeType == runtimeType && other is _$_NoConnection<T>);
   }
 
   @override
@@ -192,29 +192,29 @@ abstract class _NoConnection<T> extends RemoteResponse<T> {
 }
 
 /// @nodoc
-abstract class _$NotModifiedCopyWith<T, $Res> {
-  factory _$NotModifiedCopyWith(
-          _NotModified<T> value, $Res Function(_NotModified<T>) then) =
-      __$NotModifiedCopyWithImpl<T, $Res>;
+abstract class _$$_NotModifiedCopyWith<T, $Res> {
+  factory _$$_NotModifiedCopyWith(
+          _$_NotModified<T> value, $Res Function(_$_NotModified<T>) then) =
+      __$$_NotModifiedCopyWithImpl<T, $Res>;
   $Res call({int maxPage});
 }
 
 /// @nodoc
-class __$NotModifiedCopyWithImpl<T, $Res>
+class __$$_NotModifiedCopyWithImpl<T, $Res>
     extends _$RemoteResponseCopyWithImpl<T, $Res>
-    implements _$NotModifiedCopyWith<T, $Res> {
-  __$NotModifiedCopyWithImpl(
-      _NotModified<T> _value, $Res Function(_NotModified<T>) _then)
-      : super(_value, (v) => _then(v as _NotModified<T>));
+    implements _$$_NotModifiedCopyWith<T, $Res> {
+  __$$_NotModifiedCopyWithImpl(
+      _$_NotModified<T> _value, $Res Function(_$_NotModified<T>) _then)
+      : super(_value, (v) => _then(v as _$_NotModified<T>));
 
   @override
-  _NotModified<T> get _value => super._value as _NotModified<T>;
+  _$_NotModified<T> get _value => super._value as _$_NotModified<T>;
 
   @override
   $Res call({
     Object? maxPage = freezed,
   }) {
-    return _then(_NotModified<T>(
+    return _then(_$_NotModified<T>(
       maxPage: maxPage == freezed
           ? _value.maxPage
           : maxPage // ignore: cast_nullable_to_non_nullable
@@ -240,7 +240,7 @@ class _$_NotModified<T> extends _NotModified<T> {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _NotModified<T> &&
+            other is _$_NotModified<T> &&
             const DeepCollectionEquality().equals(other.maxPage, maxPage));
   }
 
@@ -250,8 +250,8 @@ class _$_NotModified<T> extends _NotModified<T> {
 
   @JsonKey(ignore: true)
   @override
-  _$NotModifiedCopyWith<T, _NotModified<T>> get copyWith =>
-      __$NotModifiedCopyWithImpl<T, _NotModified<T>>(this, _$identity);
+  _$$_NotModifiedCopyWith<T, _$_NotModified<T>> get copyWith =>
+      __$$_NotModifiedCopyWithImpl<T, _$_NotModified<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -328,35 +328,35 @@ abstract class _NotModified<T> extends RemoteResponse<T> {
 
   int get maxPage => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$NotModifiedCopyWith<T, _NotModified<T>> get copyWith =>
+  _$$_NotModifiedCopyWith<T, _$_NotModified<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$WithNewDataCopyWith<T, $Res> {
-  factory _$WithNewDataCopyWith(
-          _WithNewData<T> value, $Res Function(_WithNewData<T>) then) =
-      __$WithNewDataCopyWithImpl<T, $Res>;
+abstract class _$$_WithNewDataCopyWith<T, $Res> {
+  factory _$$_WithNewDataCopyWith(
+          _$_WithNewData<T> value, $Res Function(_$_WithNewData<T>) then) =
+      __$$_WithNewDataCopyWithImpl<T, $Res>;
   $Res call({T data, int maxPage});
 }
 
 /// @nodoc
-class __$WithNewDataCopyWithImpl<T, $Res>
+class __$$_WithNewDataCopyWithImpl<T, $Res>
     extends _$RemoteResponseCopyWithImpl<T, $Res>
-    implements _$WithNewDataCopyWith<T, $Res> {
-  __$WithNewDataCopyWithImpl(
-      _WithNewData<T> _value, $Res Function(_WithNewData<T>) _then)
-      : super(_value, (v) => _then(v as _WithNewData<T>));
+    implements _$$_WithNewDataCopyWith<T, $Res> {
+  __$$_WithNewDataCopyWithImpl(
+      _$_WithNewData<T> _value, $Res Function(_$_WithNewData<T>) _then)
+      : super(_value, (v) => _then(v as _$_WithNewData<T>));
 
   @override
-  _WithNewData<T> get _value => super._value as _WithNewData<T>;
+  _$_WithNewData<T> get _value => super._value as _$_WithNewData<T>;
 
   @override
   $Res call({
     Object? data = freezed,
     Object? maxPage = freezed,
   }) {
-    return _then(_WithNewData<T>(
+    return _then(_$_WithNewData<T>(
       data == freezed
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -388,7 +388,7 @@ class _$_WithNewData<T> extends _WithNewData<T> {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _WithNewData<T> &&
+            other is _$_WithNewData<T> &&
             const DeepCollectionEquality().equals(other.data, data) &&
             const DeepCollectionEquality().equals(other.maxPage, maxPage));
   }
@@ -401,8 +401,8 @@ class _$_WithNewData<T> extends _WithNewData<T> {
 
   @JsonKey(ignore: true)
   @override
-  _$WithNewDataCopyWith<T, _WithNewData<T>> get copyWith =>
-      __$WithNewDataCopyWithImpl<T, _WithNewData<T>>(this, _$identity);
+  _$$_WithNewDataCopyWith<T, _$_WithNewData<T>> get copyWith =>
+      __$$_WithNewDataCopyWithImpl<T, _$_WithNewData<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -481,6 +481,6 @@ abstract class _WithNewData<T> extends RemoteResponse<T> {
   T get data => throw _privateConstructorUsedError;
   int get maxPage => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$WithNewDataCopyWith<T, _WithNewData<T>> get copyWith =>
+  _$$_WithNewDataCopyWith<T, _$_WithNewData<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }

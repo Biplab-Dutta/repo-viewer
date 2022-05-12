@@ -91,11 +91,11 @@ class _$GithubRepoDTOCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$GithubRepoDTOCopyWith<$Res>
+abstract class _$$_GithubRepoDTOCopyWith<$Res>
     implements $GithubRepoDTOCopyWith<$Res> {
-  factory _$GithubRepoDTOCopyWith(
-          _GithubRepoDTO value, $Res Function(_GithubRepoDTO) then) =
-      __$GithubRepoDTOCopyWithImpl<$Res>;
+  factory _$$_GithubRepoDTOCopyWith(
+          _$_GithubRepoDTO value, $Res Function(_$_GithubRepoDTO) then) =
+      __$$_GithubRepoDTOCopyWithImpl<$Res>;
   @override
   $Res call(
       {UserDTO owner,
@@ -108,15 +108,15 @@ abstract class _$GithubRepoDTOCopyWith<$Res>
 }
 
 /// @nodoc
-class __$GithubRepoDTOCopyWithImpl<$Res>
+class __$$_GithubRepoDTOCopyWithImpl<$Res>
     extends _$GithubRepoDTOCopyWithImpl<$Res>
-    implements _$GithubRepoDTOCopyWith<$Res> {
-  __$GithubRepoDTOCopyWithImpl(
-      _GithubRepoDTO _value, $Res Function(_GithubRepoDTO) _then)
-      : super(_value, (v) => _then(v as _GithubRepoDTO));
+    implements _$$_GithubRepoDTOCopyWith<$Res> {
+  __$$_GithubRepoDTOCopyWithImpl(
+      _$_GithubRepoDTO _value, $Res Function(_$_GithubRepoDTO) _then)
+      : super(_value, (v) => _then(v as _$_GithubRepoDTO));
 
   @override
-  _GithubRepoDTO get _value => super._value as _GithubRepoDTO;
+  _$_GithubRepoDTO get _value => super._value as _$_GithubRepoDTO;
 
   @override
   $Res call({
@@ -125,7 +125,7 @@ class __$GithubRepoDTOCopyWithImpl<$Res>
     Object? description = freezed,
     Object? stargazersCount = freezed,
   }) {
-    return _then(_GithubRepoDTO(
+    return _then(_$_GithubRepoDTO(
       owner: owner == freezed
           ? _value.owner
           : owner // ignore: cast_nullable_to_non_nullable
@@ -178,7 +178,7 @@ class _$_GithubRepoDTO extends _GithubRepoDTO {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _GithubRepoDTO &&
+            other is _$_GithubRepoDTO &&
             const DeepCollectionEquality().equals(other.owner, owner) &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality()
@@ -198,8 +198,8 @@ class _$_GithubRepoDTO extends _GithubRepoDTO {
 
   @JsonKey(ignore: true)
   @override
-  _$GithubRepoDTOCopyWith<_GithubRepoDTO> get copyWith =>
-      __$GithubRepoDTOCopyWithImpl<_GithubRepoDTO>(this, _$identity);
+  _$$_GithubRepoDTOCopyWith<_$_GithubRepoDTO> get copyWith =>
+      __$$_GithubRepoDTOCopyWithImpl<_$_GithubRepoDTO>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -229,6 +229,6 @@ abstract class _GithubRepoDTO extends GithubRepoDTO {
   int get stargazersCount => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$GithubRepoDTOCopyWith<_GithubRepoDTO> get copyWith =>
+  _$$_GithubRepoDTOCopyWith<_$_GithubRepoDTO> get copyWith =>
       throw _privateConstructorUsedError;
 }

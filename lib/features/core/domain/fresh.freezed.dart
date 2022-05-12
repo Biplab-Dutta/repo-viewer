@@ -64,21 +64,22 @@ class _$FreshCopyWithImpl<T, $Res> implements $FreshCopyWith<T, $Res> {
 }
 
 /// @nodoc
-abstract class _$FreshCopyWith<T, $Res> implements $FreshCopyWith<T, $Res> {
-  factory _$FreshCopyWith(_Fresh<T> value, $Res Function(_Fresh<T>) then) =
-      __$FreshCopyWithImpl<T, $Res>;
+abstract class _$$_FreshCopyWith<T, $Res> implements $FreshCopyWith<T, $Res> {
+  factory _$$_FreshCopyWith(
+          _$_Fresh<T> value, $Res Function(_$_Fresh<T>) then) =
+      __$$_FreshCopyWithImpl<T, $Res>;
   @override
   $Res call({T entity, bool isFresh, bool? isNextPageAvailable});
 }
 
 /// @nodoc
-class __$FreshCopyWithImpl<T, $Res> extends _$FreshCopyWithImpl<T, $Res>
-    implements _$FreshCopyWith<T, $Res> {
-  __$FreshCopyWithImpl(_Fresh<T> _value, $Res Function(_Fresh<T>) _then)
-      : super(_value, (v) => _then(v as _Fresh<T>));
+class __$$_FreshCopyWithImpl<T, $Res> extends _$FreshCopyWithImpl<T, $Res>
+    implements _$$_FreshCopyWith<T, $Res> {
+  __$$_FreshCopyWithImpl(_$_Fresh<T> _value, $Res Function(_$_Fresh<T>) _then)
+      : super(_value, (v) => _then(v as _$_Fresh<T>));
 
   @override
-  _Fresh<T> get _value => super._value as _Fresh<T>;
+  _$_Fresh<T> get _value => super._value as _$_Fresh<T>;
 
   @override
   $Res call({
@@ -86,7 +87,7 @@ class __$FreshCopyWithImpl<T, $Res> extends _$FreshCopyWithImpl<T, $Res>
     Object? isFresh = freezed,
     Object? isNextPageAvailable = freezed,
   }) {
-    return _then(_Fresh<T>(
+    return _then(_$_Fresh<T>(
       entity: entity == freezed
           ? _value.entity
           : entity // ignore: cast_nullable_to_non_nullable
@@ -125,7 +126,7 @@ class _$_Fresh<T> implements _Fresh<T> {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Fresh<T> &&
+            other is _$_Fresh<T> &&
             const DeepCollectionEquality().equals(other.entity, entity) &&
             const DeepCollectionEquality().equals(other.isFresh, isFresh) &&
             const DeepCollectionEquality()
@@ -141,8 +142,8 @@ class _$_Fresh<T> implements _Fresh<T> {
 
   @JsonKey(ignore: true)
   @override
-  _$FreshCopyWith<T, _Fresh<T>> get copyWith =>
-      __$FreshCopyWithImpl<T, _Fresh<T>>(this, _$identity);
+  _$$_FreshCopyWith<T, _$_Fresh<T>> get copyWith =>
+      __$$_FreshCopyWithImpl<T, _$_Fresh<T>>(this, _$identity);
 }
 
 abstract class _Fresh<T> implements Fresh<T> {
@@ -159,6 +160,6 @@ abstract class _Fresh<T> implements Fresh<T> {
   bool? get isNextPageAvailable => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$FreshCopyWith<T, _Fresh<T>> get copyWith =>
+  _$$_FreshCopyWith<T, _$_Fresh<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }

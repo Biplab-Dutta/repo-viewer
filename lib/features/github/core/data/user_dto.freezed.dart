@@ -63,28 +63,29 @@ class _$UserDTOCopyWithImpl<$Res> implements $UserDTOCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$UserDTOCopyWith<$Res> implements $UserDTOCopyWith<$Res> {
-  factory _$UserDTOCopyWith(_UserDTO value, $Res Function(_UserDTO) then) =
-      __$UserDTOCopyWithImpl<$Res>;
+abstract class _$$_UserDTOCopyWith<$Res> implements $UserDTOCopyWith<$Res> {
+  factory _$$_UserDTOCopyWith(
+          _$_UserDTO value, $Res Function(_$_UserDTO) then) =
+      __$$_UserDTOCopyWithImpl<$Res>;
   @override
   $Res call({@JsonKey(name: 'login') String name, String avatarUrl});
 }
 
 /// @nodoc
-class __$UserDTOCopyWithImpl<$Res> extends _$UserDTOCopyWithImpl<$Res>
-    implements _$UserDTOCopyWith<$Res> {
-  __$UserDTOCopyWithImpl(_UserDTO _value, $Res Function(_UserDTO) _then)
-      : super(_value, (v) => _then(v as _UserDTO));
+class __$$_UserDTOCopyWithImpl<$Res> extends _$UserDTOCopyWithImpl<$Res>
+    implements _$$_UserDTOCopyWith<$Res> {
+  __$$_UserDTOCopyWithImpl(_$_UserDTO _value, $Res Function(_$_UserDTO) _then)
+      : super(_value, (v) => _then(v as _$_UserDTO));
 
   @override
-  _UserDTO get _value => super._value as _UserDTO;
+  _$_UserDTO get _value => super._value as _$_UserDTO;
 
   @override
   $Res call({
     Object? name = freezed,
     Object? avatarUrl = freezed,
   }) {
-    return _then(_UserDTO(
+    return _then(_$_UserDTO(
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -122,7 +123,7 @@ class _$_UserDTO extends _UserDTO {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _UserDTO &&
+            other is _$_UserDTO &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.avatarUrl, avatarUrl));
   }
@@ -136,8 +137,8 @@ class _$_UserDTO extends _UserDTO {
 
   @JsonKey(ignore: true)
   @override
-  _$UserDTOCopyWith<_UserDTO> get copyWith =>
-      __$UserDTOCopyWithImpl<_UserDTO>(this, _$identity);
+  _$$_UserDTOCopyWith<_$_UserDTO> get copyWith =>
+      __$$_UserDTOCopyWithImpl<_$_UserDTO>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -160,6 +161,6 @@ abstract class _UserDTO extends UserDTO {
   String get avatarUrl => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$UserDTOCopyWith<_UserDTO> get copyWith =>
+  _$$_UserDTOCopyWith<_$_UserDTO> get copyWith =>
       throw _privateConstructorUsedError;
 }

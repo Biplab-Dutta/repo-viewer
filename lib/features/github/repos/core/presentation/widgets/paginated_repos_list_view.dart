@@ -7,8 +7,8 @@ import 'package:repo_viewer/features/github/repos/core/presentation/widgets/fail
 import 'package:repo_viewer/features/github/repos/core/presentation/widgets/repo_tile.dart';
 import 'package:repo_viewer/features/github/repos/core/presentation/widgets/shimmer_tile.dart';
 
-typedef PaginatedReposNotifierProvider
-    = StateNotifierProvider<PaginatedReposNotifier, PaginatedReposState>;
+typedef PaginatedReposNotifierProvider = AutoDisposeStateNotifierProvider<
+    PaginatedReposNotifier, PaginatedReposState>;
 
 class PaginatedReposListView extends StatefulWidget {
   const PaginatedReposListView({

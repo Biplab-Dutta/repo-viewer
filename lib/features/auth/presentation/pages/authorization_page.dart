@@ -5,12 +5,11 @@ import 'package:webview_flutter/webview_flutter.dart';
 
 class AuthorizationPage extends StatelessWidget {
   AuthorizationPage({
-    Key? key,
+    super.key,
     required this.authorizationUrl,
     required this.onAuthorizationCodeRedirectAttempt,
     CookieManager? cookieManager,
-  })  : _cookieManager = cookieManager ?? CookieManager(),
-        super(key: key);
+  })  : _cookieManager = cookieManager ?? CookieManager();
 
   final Uri authorizationUrl;
   final void Function(Uri redirectUrl) onAuthorizationCodeRedirectAttempt;

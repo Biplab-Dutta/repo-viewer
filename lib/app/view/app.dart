@@ -24,7 +24,7 @@ final initializationProvider = FutureProvider<void>(
 */
 
 class App extends ConsumerWidget {
-  App({Key? key}) : super(key: key);
+  App({super.key});
 
   final appRouter = AppRouter();
   @override

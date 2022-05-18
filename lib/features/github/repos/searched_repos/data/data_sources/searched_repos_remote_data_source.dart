@@ -1,6 +1,4 @@
-import 'package:dio/dio.dart';
 import 'package:repo_viewer/features/core/data/remote_response.dart';
-import 'package:repo_viewer/features/github/core/data/github_headers_cache.dart';
 import 'package:repo_viewer/features/github/core/data/github_repo_dto.dart';
 import 'package:repo_viewer/features/github/core/data/pagination_config.dart';
 import 'package:repo_viewer/features/github/repos/core/data/repos_remote_service.dart';
@@ -9,9 +7,9 @@ typedef GithubRepoDTOList = Future<RemoteResponse<List<GithubRepoDTO>>>;
 
 class SearchedRepoRemoteDataSource extends ReposRemoteService {
   SearchedRepoRemoteDataSource(
-    Dio dio,
-    GithubHeadersCache headersCache,
-  ) : super(dio, headersCache);
+    super.dio,
+    super.headersCache,
+  );
 
   GithubRepoDTOList getSearchedReposPage(
     int page, {

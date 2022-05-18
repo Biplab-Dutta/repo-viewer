@@ -8,7 +8,7 @@ import 'package:repo_viewer/features/auth/shared/providers.dart';
 import 'package:repo_viewer/routes/app_router.gr.dart';
 
 class SignInPage extends ConsumerWidget {
-  const SignInPage({Key? key}) : super(key: key);
+  const SignInPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

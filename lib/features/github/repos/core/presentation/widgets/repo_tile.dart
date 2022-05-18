@@ -4,9 +4,9 @@ import 'package:repo_viewer/features/github/core/domain/github_repo.dart';
 
 class RepoTile extends StatelessWidget {
   const RepoTile({
-    Key? key,
+    super.key,
     required this.repo,
-  }) : super(key: key);
+  });
 
   final GithubRepo repo;
   @override

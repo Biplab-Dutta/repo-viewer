@@ -9,10 +9,10 @@ class AuthorizationPage extends StatelessWidget {
     required this.authorizationUrl,
     required this.onAuthorizationCodeRedirectAttempt,
     CookieManager? cookieManager,
-  })  : _cookieManager = cookieManager ?? CookieManager();
+  }) : _cookieManager = cookieManager ?? CookieManager();
 
   final Uri authorizationUrl;
-  final void Function(Uri redirectUrl) onAuthorizationCodeRedirectAttempt;
+  final void Function(Uri) onAuthorizationCodeRedirectAttempt;
   final CookieManager _cookieManager;
 
   @override

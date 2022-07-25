@@ -40,13 +40,13 @@ class App extends ConsumerWidget {
                 /* The delay is necessary for the sembast 
                     database to initialize */
                 await Future<void>.delayed(const Duration(milliseconds: 500));
-                await appRouter.pushAndPopUntil<bool>(
+                await appRouter.pushAndPopUntil(
                   const StarredReposRoute(),
                   predicate: (_) => false,
                 );
               },
               unauthenticated: () {
-                appRouter.pushAndPopUntil<bool>(
+                appRouter.pushAndPopUntil(
                   const SignInRoute(),
                   predicate: (_) => false,
                 );
